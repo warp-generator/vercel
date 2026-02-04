@@ -1,0 +1,21 @@
+{
+  "name": "vercel-proxy-api",
+  "version": "1.0.0",
+  "description": "Edge Function Proxy for API requests",
+  "main": "api/[...route].js",
+  "scripts": {
+    "dev": "vercel dev",
+    "start": "vercel dev",
+    "deploy": "vercel --prod",
+    "preview": "vercel preview"
+  },
+  "keywords": ["edge-function", "proxy", "api", "vercel"],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "vercel": "^35.0.0"
+  },
+  "engines": {
+    "node": ">=18.x"
+  }
+}
