@@ -21,9 +21,6 @@ export default async function handler(request) {
   const origin = request.headers.get('origin') || '';
   const allowedOrigins = [
     'https://warp-generator.github.io',
-    'http://localhost:3000', // Для локальной разработки
-    'http://127.0.0.1:3000',
-    'null'
   ];
   
   // Разрешаем все origins или только из белого списка
