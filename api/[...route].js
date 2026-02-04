@@ -243,41 +243,4 @@ async function handleApiResponse(apiResponse, originalRequest) {
   });
 }
 
-// === ДОПОЛНИТЕЛЬНЫЕ ФУНКЦИИ ДЛЯ ОБРАБОТКИ ОШИБОК ===
 
-/**
- * Создание JSON ответа с ошибкой
- */
-function createErrorResponse(message, status = 500, details = {}) {
-  return new Response(JSON.stringify({
-    success: false,
-    error: message,
-    ...details,
-    timestamp: new Date().toISOString()
-  }), {
-    status: status,
-    headers: {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Access-Control-Allow-Origin': '*',
-      'Cache-Control': 'no-store, no-cache, must-revalidate'
-    }
-  });
-}
-
-/**
- * Проверка rate limiting (если нужно)
- */
-function checkRateLimit(request) {
-  // Можно реализовать rate limiting используя Vercel KV или другие хранилища
-  // Для Edge Functions подойдёт Vercel KV (Redis)
-  
-  // Пример простой проверки по IP
-  const ip = request.headers.get('cf-connecting-ip') || 
-             request.headers.get('x-real-ip') || 
-             'unknown';
-  
-  // Здесь можно добавить логику проверки лимитов
-  // Например, используя Vercel KV
-  
-  return { allowed: true, remaining: 100 }; // Заглушка
-}
